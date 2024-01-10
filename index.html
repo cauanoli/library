@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./assets/images/logo.svg" alt="" />
+      </div>
+      <div class="books-actions">
+        <button class="add-book button">Add book</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="books-section">
+        <h2>Books</h2>
+        <div class="books-container-modes">
+          <button class="icon-button mode grid-mode-button">
+            <img
+              src="./assets/icons/Grid view.svg"
+              alt="books library in grid view mode"
+            />
+          </button>
+          <button class="icon-button mode table-mode-button">
+            <img
+              src="./assets/icons/List.svg"
+              alt="books library in table view mode"
+            />
+          </button>
+        </div>
+        <div class="books-container"></div>
+      </section>
+    </main>
+
+    <dialog class="add-book-dialog">
+      <h2>Add book</h2>
+      <button class="icon-button close-dialog-button" autofocus>
+        <img src="./assets/icons/Close.svg" alt="close add book dialog" />
+      </button>
+
+      <form method="dialog">
+        <div class="form-item">
+          <label for="title">Title</label>
+          <input type="text" type="text" name="title" id="title" />
+        </div>
+        <div class="form-item">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div class="form-item">
+          <label for="pages">Pages</label>
+          <input type="number" name="pages" id="pages" />
+        </div>
+
+        <div class="form-item">
+          <label for="read">Already read?</label>
+          <input type="checkbox" name="read" id="read" />
+        </div>
+
+        <div class="form-item">
+          <button class="button primary">Add book</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
