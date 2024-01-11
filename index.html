@@ -46,7 +46,7 @@
 
     <dialog class="add-book-dialog">
       <h2>Add book</h2>
-      <button class="icon-button close-dialog-button" autofocus>
+      <button class="icon-button close-button" autofocus>
         <img src="./assets/icons/Close.svg" alt="close add book dialog" />
       </button>
 
@@ -65,12 +65,15 @@
         </div>
 
         <div class="form-item">
-          <label for="read">Already read?</label>
-          <input type="checkbox" name="read" id="read" />
+          <label for="read"
+            >Already read?
+
+            <input type="checkbox" name="read" id="read" />
+          </label>
         </div>
 
         <div class="form-item">
-          <button class="button primary">Add book</button>
+          <button type="submit" class="button primary">Add book</button>
         </div>
       </form>
     </dialog>

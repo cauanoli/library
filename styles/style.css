@@ -38,7 +38,16 @@ header .wrapper {
   border-radius: 12px;
   padding: 12px 24px;
   background-color: var(--bg-light);
-  border: transparent;
+  border: 2px solid transparent;
+}
+
+.button.primary {
+  background-color: var(--clr-primary);
+}
+
+.button.primary:hover {
+  background-color: var(--bg-light);
+  border-color: var(--clr-primary);
 }
 
 button:hover {
@@ -142,4 +151,75 @@ h2 {
 
 .book-card p span {
   display: block;
+}
+
+.add-book-dialog {
+  border: transparent;
+  border-radius: 12px;
+  padding: 3.75rem;
+  position: relative;
+  text-align: center;
+  background-color: var(--bg-gray);
+  min-width: 33vw;
+}
+
+.add-book-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.add-book-dialog .close-button {
+  background: transparent;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.add-book-dialog form {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.add-book-dialog form button {
+  width: 100%;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.form-item input {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: transparent;
+  min-height: 48px;
+  width: 100%;
+}
+
+.form-item label {
+  width: 100%;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.form-item input[type="checkbox"] {
+  display: inline;
+  width: 48px;
+}
+
+label[for="read"] {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }

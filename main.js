@@ -106,7 +106,6 @@ function updateBookView(viewMode) {
   });
 
   addBookForm.addEventListener("submit", (event) => {
-    event.preventDefault();
     let formData = new FormData(addBookForm);
     addBookToLibrary(Object.fromEntries(formData), viewMode);
   });
