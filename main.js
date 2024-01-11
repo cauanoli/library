@@ -43,15 +43,19 @@ function displayBooksAsTable() {
   const titleAuthors = document.createElement("th");
   const titlePages = document.createElement("th");
   const titleStatus = document.createElement("th");
+  const titleActions = document.createElement("th");
 
   titleHeader.innerText = "Title";
   titleAuthors.innerText = "Authors";
   titlePages.innerText = "Pages";
   titleStatus.innerText = "Status";
+  titleActions.innerText = "";
 
-  [titleHeader, titleAuthors, titlePages, titleStatus].forEach((title) => {
-    tableHeader.appendChild(title);
-  });
+  [titleHeader, titleAuthors, titlePages, titleStatus, titleActions].forEach(
+    (title) => {
+      tableHeader.appendChild(title);
+    }
+  );
   booksTable.appendChild(tableHeader);
 
   library.forEach((book) => {
@@ -74,6 +78,10 @@ function displayBooksAsTable() {
           book.toggleRead();
           updateBookView("table");
         });
+
+        if (book.read === "on") {
+          row.classList.add("read");
+        }
 
         td.appendChild(readButton);
         row.appendChild(td);
