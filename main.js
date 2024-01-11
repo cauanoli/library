@@ -36,7 +36,7 @@ function displayBooksAsGrid() {
 
   library.forEach((book) => {
     const bookCard = document.createElement("div");
-    const title = document.createElement("h2");
+    const title = document.createElement("h3");
 
     const bookInformation = document.createElement("p");
     const bookAuthor = document.createElement("span");
@@ -56,12 +56,14 @@ function displayBooksAsGrid() {
     buttonsContainer.classList = "buttons-container";
 
     readButton.innerText = `${book.read === "on" ? "Read" : "To read"}`;
+    readButton.classList = "button read-button";
     readButton.addEventListener("click", () => {
       book.toggleRead();
       updateBookView("grid");
     });
 
     deleteButton.innerText = "Delete";
+    deleteButton.classList = "button delete-button";
     deleteButton.addEventListener("click", () => {
       removeBookFromLibrary(book.id);
       updateBookView("grid");

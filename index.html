@@ -9,33 +9,39 @@
   </head>
   <body>
     <header>
-      <div class="logo">
-        <img src="./assets/images/logo.svg" alt="" />
-      </div>
-      <div class="books-actions">
-        <button class="add-book button">Add book</button>
+      <div class="wrapper">
+        <div class="logo">
+          <img src="./assets/images/logo.svg" alt="" />
+        </div>
+        <div class="books-actions">
+          <button class="add-book button">Add book</button>
+        </div>
       </div>
     </header>
 
     <main>
-      <section class="books-section">
-        <h2>Books</h2>
-        <div class="books-container-modes">
-          <button class="icon-button mode grid-mode-button">
-            <img
-              src="./assets/icons/Grid view.svg"
-              alt="books library in grid view mode"
-            />
-          </button>
-          <button class="icon-button mode table-mode-button">
-            <img
-              src="./assets/icons/List.svg"
-              alt="books library in table view mode"
-            />
-          </button>
-        </div>
-        <div class="books-container"></div>
-      </section>
+      <div class="wrapper">
+        <section class="books-section">
+          <div class="top-container">
+            <h2>Books</h2>
+            <div class="books-container-modes">
+              <button class="icon-button mode grid-mode-button">
+                <img
+                  src="./assets/icons/Grid view.svg"
+                  alt="books library in grid view mode"
+                />
+              </button>
+              <button class="icon-button mode table-mode-button">
+                <img
+                  src="./assets/icons/List.svg"
+                  alt="books library in table view mode"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="books-container"></div>
+        </section>
+      </div>
     </main>
 
     <dialog class="add-book-dialog">
@@ -47,7 +53,7 @@
       <form method="dialog">
         <div class="form-item">
           <label for="title">Title</label>
-          <input type="text" type="text" name="title" id="title" />
+          <input type="text" type="text" name="title" id="title" required />
         </div>
         <div class="form-item">
           <label for="author">Author</label>
