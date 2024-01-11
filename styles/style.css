@@ -96,13 +96,14 @@ h2 {
   background-color: var(--clr-primary);
 }
 
-.books-container {
+.books-container.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.2rem;
+  padding-bottom: 32px;
 }
 
-.books-container > .book-card {
+.books-container.grid > .book-card {
   margin-top: 24px;
   background-color: var(--bg-gray);
   padding: 24px;
