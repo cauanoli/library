@@ -69,6 +69,12 @@ h2 {
   font-weight: 700;
 }
 
+h3,
+.title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
 .books-section .top-container {
   display: flex;
   justify-content: space-between;

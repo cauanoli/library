@@ -65,6 +65,7 @@ function displayBooksAsTable() {
       if (key !== "id" && key !== "read") {
         const td = document.createElement("td");
         td.innerText = book[key];
+        td.classList.add(key);
         row.appendChild(td);
         return;
       }
