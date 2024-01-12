@@ -35,7 +35,7 @@ header .wrapper {
 .button {
   font-weight: 700;
   font-size: 1.2rem;
-  border-radius: 12px;
+  border-radius: var(--border-radius-md);
   padding: 12px 24px;
   background-color: var(--bg-light);
   border: 2px solid transparent;
@@ -88,7 +88,7 @@ h3,
 
 .icon-button {
   border: transparent;
-  border-radius: 12px;
+  border-radius: var(--border-radius-md);
   min-width: 64px;
   min-height: 64px;
   flex: 0;
@@ -112,7 +112,7 @@ h3,
 .books-container.grid > .book-card {
   background-color: var(--bg-gray);
   padding: 24px;
-  border-radius: 12px;
+  border-radius: var(--border-radius-md);
   min-height: 300px;
 
   display: grid;
@@ -163,7 +163,7 @@ tr.read .read-button:hover {
 
 .add-book-dialog {
   border: transparent;
-  border-radius: 12px;
+  border-radius: var(--border-radius-md);
   padding: 3.75rem;
   position: relative;
   text-align: center;
@@ -208,7 +208,7 @@ tr.read .read-button:hover {
 .form-item input {
   padding: 8px;
   font-size: 1rem;
-  border-radius: 12px;
+  border-radius: var(--border-radius-md);
   border: transparent;
   min-height: 48px;
   width: 100%;
@@ -267,10 +267,10 @@ td {
 
 td:last-child,
 th:last-child {
-  border-radius: 0 12px 12px 0;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
 }
 
 td:first-child,
 th:first-child {
-  border-radius: 12px 0 0 12px;
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
 }

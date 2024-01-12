@@ -182,6 +182,11 @@ function updateBookView(viewMode) {
   const tableModeButton = document.querySelector(".table-mode-button");
   const booksContainer = document.querySelector(".books-container");
 
+  const dialog = document.querySelector("dialog.add-book-dialog");
+  dialog.querySelector("button.close-button").addEventListener("click", () => {
+    dialog.close();
+  });
+
   let viewMode = "grid";
 
   addBookButton.addEventListener("click", () => {
