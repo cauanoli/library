@@ -1,36 +1,51 @@
-let library = [];
-
-function Book(title, author, pages, read, id) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = id;
-}
-
-Book.prototype.toggleRead = function () {
-  if (this.read === "on") {
-    this.read = "off";
-  } else {
-    this.read = "on";
+class Book {
+  constructor(title, author, pages, read, id) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = id;
   }
-};
 
-function addBookToLibrary(bookInfo, viewMode) {
-  const book = new Book(
-    bookInfo.title,
-    bookInfo.author,
-    bookInfo.pages,
-    bookInfo.read,
-    `${bookInfo.title + (library.length + 1)}`
-  );
-  library.push(book);
-  updateBookView(viewMode);
+  toggleRead() {
+    if (this.read === "on") {
+      this.read = "off";
+    } else {
+      this.read = "on";
+    }
+  }
 }
 
-function removeBookFromLibrary(id) {
-  library = library.filter((book) => book.id !== id);
+class Library {
+  #library = [];
+  constructor() {}
+
+  addBook(bookInfo, viewMode) {
+    const book = new Book(
+      bookInfo.title,
+      bookInfo.author,
+      bookInfo.pages,
+      bookInfo.read,
+      `${bookInfo.title + (this.length + 1)}`
+    );
+    this.#library.push(book);
+    updateBookView(viewMode);
+  }
+
+  removeBook(id) {
+    this.#library = this.#library.filter((book) => book.id !== id);
+  }
+
+  get length() {
+    return this.#library.length;
+  }
+
+  get books() {
+    return [...this.#library];
+  }
 }
+
+const library = new Library();
 
 function displayBooksAsTable() {
   const booksContainer = document.querySelector(".books-container");
@@ -58,7 +73,7 @@ function displayBooksAsTable() {
   );
   booksTable.appendChild(tableHeader);
 
-  library.forEach((book) => {
+  library.books.forEach((book) => {
     const row = document.createElement("tr");
 
     Object.keys(book).forEach((key) => {
@@ -94,7 +109,7 @@ function displayBooksAsTable() {
     deleteButton.innerText = "Delete";
     deleteButton.classList = "button delete-button";
     deleteButton.addEventListener("click", () => {
-      removeBookFromLibrary(book.id);
+      library.removeBook(book.id);
       updateBookView("table");
     });
 
@@ -113,7 +128,7 @@ function displayBooksAsGrid() {
   booksContainer.classList.remove("table");
   booksContainer.classList.add("grid");
 
-  library.forEach((book) => {
+  library.books.forEach((book) => {
     const bookCard = document.createElement("div");
     const title = document.createElement("h3");
 
@@ -144,7 +159,7 @@ function displayBooksAsGrid() {
     deleteButton.innerText = "Delete";
     deleteButton.classList = "button delete-button";
     deleteButton.addEventListener("click", () => {
-      removeBookFromLibrary(book.id);
+      library.removeBook(book.id);
       updateBookView("grid");
     });
 
@@ -195,7 +210,7 @@ function updateBookView(viewMode) {
 
   addBookForm.addEventListener("submit", (event) => {
     let formData = new FormData(addBookForm);
-    addBookToLibrary(Object.fromEntries(formData), viewMode);
+    library.addBook(Object.fromEntries(formData), viewMode);
   });
 
   gridModeButton.addEventListener("click", (event) => {
