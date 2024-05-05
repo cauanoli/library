@@ -7,6 +7,7 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>library</title>
+    <script src="./main.js" defer></script>
   </head>
   <body>
     <header>
@@ -21,6 +22,15 @@
         <th>Status</th>
       </tr>
     </table>
+
+    <template id="book-template">
+      <tr class="book">
+        <td class="book__title"></td>
+        <td class="book__author"></td>
+        <td class="book__pages"></td>
+        <td class="book__status"></td>
+      </tr>
+    </template>
 
     <button class="button add-book-button">Add book</button>
   </body>
