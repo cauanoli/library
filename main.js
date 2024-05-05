@@ -51,4 +51,9 @@ function createBookElement(book) {
   return bookElement;
 }
 
-renderLibrary();
+const addBookDialog = document.querySelector(".add-book-dialog");
+const addBookButton = document.querySelector(".add-book-button");
+
+addBookButton.addEventListener("click", () => {
+  addBookDialog.showModal();
+});
