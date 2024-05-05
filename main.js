@@ -48,6 +48,12 @@ function removeBookFromLibrary(bookId) {
   updateLibrary();
 }
 
+function updateBookStatus(bookId) {
+  let book = library.find((book) => book.id === bookId);
+  book.isRead = !book.isRead;
+  updateLibrary();
+}
+
 function createBookElement(book) {
   const bookTemplate = document.querySelector("#book-template");
   const bookElement = bookTemplate.content.cloneNode(true);
@@ -56,7 +62,9 @@ function createBookElement(book) {
   const title = bookElement.querySelector(".book__title");
   const author = bookElement.querySelector(".book__author");
   const pages = bookElement.querySelector(".book__pages");
-  const status = bookElement.querySelector(".book__status");
+  const statusButton = bookElement.querySelector(
+    ".book__status__button"
+  );
   const removeButton = bookElement.querySelector(
     ".book__remove-button__button"
   );
@@ -64,13 +72,16 @@ function createBookElement(book) {
   title.textContent = book.title;
   author.textContent = book.author;
   pages.textContent = book.pageNumber;
-  status.textContent = book.isRead ? "Read" : "Not Read";
+  statusButton.textContent = book.isRead ? "Read" : "Not Read";
 
   tr.dataset.id = book.id;
 
   removeButton.addEventListener("click", () => {
-    console.log(book.id);
     removeBookFromLibrary(book.id);
+  });
+
+  statusButton.addEventListener("click", () => {
+    updateBookStatus(book.id);
   });
 
   return bookElement;
