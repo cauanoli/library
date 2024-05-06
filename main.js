@@ -1,10 +1,32 @@
-let library = [];
+let library = [
+  new Book({
+    title: "kl;jalksd",
+    author: "alkjasd",
+    pageNumber: 12123,
+    status: false,
+    id: 123,
+  }),
+  new Book({
+    title: "kl;jalksd1",
+    author: "alkjasd",
+    pageNumber: 12123,
+    status: false,
+    id: 1234,
+  }),
+  new Book({
+    title: "kl;jalksd123",
+    author: "alkjasd",
+    pageNumber: 12123,
+    status: true,
+    id: 12345,
+  }),
+];
 
-function Book({ title, author, pageNumber, isRead, id }) {
+function Book({ title, author, pageNumber, status, id }) {
   this.title = title;
   this.author = author;
   this.pageNumber = pageNumber;
-  this.isRead = isRead;
+  this.status = status;
   this.id = id;
 }
 
@@ -50,7 +72,7 @@ function removeBookFromLibrary(bookId) {
 
 function updateBookStatus(bookId) {
   let book = library.find((book) => book.id === bookId);
-  book.isRead = !book.isRead;
+  book.status = !book.status;
   updateLibrary();
 }
 
@@ -72,7 +94,14 @@ function createBookElement(book) {
   title.textContent = book.title;
   author.textContent = book.author;
   pages.textContent = book.pageNumber;
-  statusButton.textContent = book.isRead ? "Read" : "Not Read";
+
+  if (book.status) {
+    statusButton.textContent = "Read";
+    statusButton.classList.add("read");
+  } else {
+    statusButton.textContent = "Not read";
+    statusButton.classList.remove("read");
+  }
 
   tr.dataset.id = book.id;
 
@@ -88,7 +117,7 @@ function createBookElement(book) {
 }
 
 const addBookDialog = document.querySelector(".add-book-dialog");
-const addBookButton = document.querySelector(".add-book-button");
+const addBookButton = document.querySelector("#add-book-button");
 const addBookForm = addBookDialog.querySelector(
   ".add-book-dialog__form"
 );
@@ -104,3 +133,5 @@ addBookForm.addEventListener("submit", (event) => {
 addBookButton.addEventListener("click", () => {
   addBookDialog.showModal();
 });
+
+renderLibrary();

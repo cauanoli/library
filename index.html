@@ -8,20 +8,28 @@
     />
     <title>library</title>
     <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header>
-      <h1>library</h1>
+    <header class="header center">
+      <div class="container">
+        <h1>library</h1>
+      </div>
     </header>
 
-    <table class="books-table">
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Pages</th>
-        <th>Status</th>
-      </tr>
-    </table>
+    <div class="center">
+      <div class="container">
+        <table class="books-table">
+          <tr class="books-table__titles">
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Status</th>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
     <template id="book-template">
       <tr class="book">
@@ -31,7 +39,7 @@
         <td class="book__status">
           <button class="book__status__button button"></button>
         </td>
-        <td class="book__remove-button button">
+        <td class="book__remove-button">
           <button class="book__remove-button__button">
             <img
               src="./assets/icons/close_FILL0_wght400_GRAD0_opsz24.svg"
@@ -42,10 +50,10 @@
       </tr>
     </template>
 
-    <button class="button add-book-button">Add book</button>
+    <button class="button" id="add-book-button">Add book</button>
 
     <dialog class="add-book-dialog">
-      <h2>Add book</h2>
+      <h2 class="add-book-dialog__title">Add book</h2>
       <form method="dialog" class="add-book-dialog__form">
         <div class="form-row">
           <label for="title">Title</label>
@@ -58,16 +66,18 @@
         </div>
 
         <div class="form-row">
-          <label for="pages">Pages</label>
-          <input type="text" id="pages" name="pages" />
+          <label for="pageNumber">Pages</label>
+          <input type="text" id="pageNumber" name="pageNumber" />
         </div>
 
-        <div class="form-row">
-          <label for="status">Status</label>
+        <div class="form-row status">
+          <label for="status">Already Read?</label>
           <input type="checkbox" name="status" id="status" />
         </div>
 
-        <button class="buttton">Add</button>
+        <div class="form-row">
+          <button class="button">Add</button>
+        </div>
       </form>
     </dialog>
   </body>
