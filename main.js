@@ -1,26 +1,4 @@
-let library = [
-  new Book({
-    title: "kl;jalksd",
-    author: "alkjasd",
-    pageNumber: 12123,
-    status: false,
-    id: 123,
-  }),
-  new Book({
-    title: "kl;jalksd1",
-    author: "alkjasd",
-    pageNumber: 12123,
-    status: false,
-    id: 1234,
-  }),
-  new Book({
-    title: "kl;jalksd123",
-    author: "alkjasd",
-    pageNumber: 12123,
-    status: true,
-    id: 12345,
-  }),
-];
+let library = [];
 
 function Book({ title, author, pageNumber, status, id }) {
   this.title = title;
