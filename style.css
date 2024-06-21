@@ -1,0 +1,209 @@
+:root {
+  --black: #000000;
+  --gray-900: #141414;
+  --gray-800: #262626;
+  --gray-600: #d2d2d2;
+  --gray-400: #fafafa;
+  --gray-500: #f5f5f5;
+  --red-400: #ff4d4f;
+  --blue-600:#1677ff;
+
+  --text-color: var(--gray-400);
+  --text-color-on-light-bg: var(--black);
+  --surface-color: var(--black);
+  --surface-color-alternative: var(--gray-400);
+  --surface-border-color: var(--gray-400);
+  --background-color: var(--gray-900);
+  --input-color: var(--gray-400);
+  --book-color: var(--gray-800);
+  --book-color-alternative: var(--gray-600);
+  --focus-color: var(--blue-600);
+
+  --space-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  --spacing-extra-large: 32px;
+
+  --font-weight-bold: 700;
+
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+  --text-color: var(--black);
+  --text-color-on-light-bg: var(--black);
+  --surface-color: var(--gray-400);
+  --surface-color-alternative: var(--gray-500);
+  --surface-border-color: var(--black);
+  --background-color: var(--gray-500);
+  --input-color: var(--gray-400);
+  --book-color: var(--gray-400);
+  --book-color-alternative: var(--gray-600);
+  --focus-color: var(--blue-600);
+  }
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+*:focus {
+  outline: 4px solid var(--focus-color);
+}
+
+.container {
+  max-width: 80%;
+  width: 100%;
+  padding: var(--spacing-large) 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  background-color: var(--surface-color);
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+
+.books-table {
+  font-size: 1.2rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: var(--spacing-medium);
+}
+
+.books-table__titles {
+  position: sticky;
+  top: 0;
+}
+
+.books-table__titles th,
+.books-table__titles td {
+  background-color: var(--surface-color);
+}
+
+tr td {
+  background-color: var(--book-color);
+  text-align: center;
+  flex: 1;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--book-color-alternative);
+  color: var(--text-color-on-light-bg);
+}
+
+.button {
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-medium);
+  font-size: 1.125rem;
+  min-width: 160px;
+  border: 4px solid var(--surface-border-color);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.book__status__button {
+  border: none;
+}
+
+.book__status__button.read {
+  background-color: var(--surface-color-alternative);
+  color: var(--text-color-on-light-bg);
+}
+
+.book__remove-button__button {
+  background-color: var(--surface-color-alternative);
+  border: none;
+  padding: var(--space-small);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book__remove-button__button:hover {
+  background-color: var(--red-400);
+  cursor: pointer;
+}
+
+.add-book-dialog {
+  margin: auto auto;
+  padding: var(--spacing-extra-large);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: 2px solid transparent;
+}
+
+.add-book-dialog__title {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-small);
+  margin-bottom: var(--spacing-medium);
+}
+
+.form-row.status {
+  flex-direction: row;
+  gap: var(--spacing-large);
+  align-items: center;
+}
+
+form button {
+  margin-top: var(--spacing-large);
+}
+
+label {
+  font-weight: 700;
+  font-size: 1.125;
+}
+
+input {
+  padding: var(--spacing-medium);
+  background-color: var(--surface-color-alternative);
+  color: var(--text-color-on-light-bg);
+  font-size: 1.25rem;
+  border: transparent;
+}
+
+input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+}
